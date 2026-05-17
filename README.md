@@ -10,8 +10,8 @@
 ## Integrantes
 
 - Kelly Beitia
--
--  
+- Lionel Cordoba
+- Luis De los Rios
  
 
 ---
