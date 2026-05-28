@@ -11,7 +11,6 @@
 
 - Kelly Beitia
 - Lionel Cordoba
-- Luis De los Rios
  
 
 ---
@@ -180,11 +179,7 @@ Este problema permite ingresar cinco números positivos mediante un formulario. 
 
 ### Captura del código
 
-Agregar aquí la captura del código del problema 1.
-
-```text
-public/img/capturas/problema1-codigo.png
-```
+![Problema 1](Captures/Problema1.png)
 
 ### Captura de ejecución
 
@@ -203,9 +198,7 @@ Este problema calcula la suma de los números del 1 al 1000. El resultado espera
 
 ### Captura del código
 
-```text
-public/img/capturas/problema2-codigo.png
-```
+![Problema 2](Captures/Problema2.png)
 
 ### Captura de ejecución
 
@@ -224,9 +217,7 @@ El usuario ingresa un valor `N` y el sistema muestra los primeros `N` múltiplos
 
 ### Captura del código
 
-```text
-public/img/capturas/problema3-codigo.png
-```
+![Problema 3](Captures/Problema3.png)
 
 ### Captura de ejecución
 
@@ -245,9 +236,7 @@ Este problema calcula por separado la suma de los números pares e impares compr
 
 ### Captura del código
 
-```text
-public/img/capturas/problema4-codigo.png
-```
+![Problema 4](Captures/Problema4.png)
 
 ### Captura de ejecución
 
@@ -266,9 +255,7 @@ El usuario ingresa la edad de cinco personas. Cada edad se clasifica en niño, a
 
 ### Captura del código
 
-```text
-public/img/capturas/problema5-codigo.png
-```
+![Problema 5](Captures/Problema5.png)
 
 ### Captura de ejecución
 
@@ -287,9 +274,7 @@ El usuario ingresa el presupuesto anual del hospital. El sistema distribuye el p
 
 ### Captura del código
 
-```text
-public/img/capturas/problema6-codigo.png
-```
+![Problema 6](Captures/Problema6.png)
 
 ### Captura de ejecución con gráfica circular
 
@@ -308,9 +293,9 @@ El usuario indica cuántas notas desea ingresar. Luego se calculan el promedio, 
 
 ### Captura del código
 
-```text
-public/img/capturas/problema7-codigo.png
-```
+![Problema 7](Captures/Problema7-1.png)
+
+![Problema 7](Captures/Problema7-2.png)
 
 ### Captura de ejecución
 
@@ -329,9 +314,7 @@ El usuario ingresa una fecha. El sistema identifica la estación del año corres
 
 ### Captura del código
 
-```text
-public/img/capturas/problema8-codigo.png
-```
+![Problema 8](Captures/Problema8.png)
 
 ### Captura de ejecución con imagen
 
@@ -350,9 +333,8 @@ El usuario ingresa un número del 1 al 9. El sistema calcula las primeras 15 pot
 
 ### Captura del código
 
-```text
-public/img/capturas/problema9-codigo.png
-```
+![Problema 9](Captures/Problema9.png)
+
 
 ### Captura de ejecución
 
