@@ -4,14 +4,14 @@
 class EstacionAnio
 {
     /**
-     * Determina la estación del año para una fecha dada.
-     *
-     * Tabla de estaciones:
-     *   Verano    : 21 dic → 20 mar
-     *   Otoño     : 21 mar → 21 jun
-     *   Invierno  : 22 jun → 22 sep
-     *   Primavera : 23 sep → 20 dic
-     */
+    * Determina la estación del año para una fecha dada.
+    *
+    * Tabla de estaciones:
+    * Invierno: 21 dic → 20 mar
+    * Primavera: 21 mar → 20 jun
+    * Verano: 21 jun → 22 sep
+    * Otoño: 23 sep → 20 dic
+    */
     public static function determinar(string $fechaStr): array
     {
         $fecha = new DateTime($fechaStr);
@@ -38,23 +38,24 @@ class EstacionAnio
     {
         $valor = $mes * 100 + $dia;
 
-        // Verano: 21 dic (1221) - 31 dic (1231)  y  1 ene (101) - 20 mar (320)
+        // Hemisferio Norte:
+        // Invierno: 21 dic (1221) - 31 dic (1231) y 1 ene (101) - 20 mar (320)
         if ($valor >= 1221 || $valor <= 320) {
-            return 'Verano';
-        }
-
-        // Otoño: 21 mar (321) - 21 jun (621)
-        if ($valor >= 321 && $valor <= 621) {
-            return 'Otoño';
-        }
-
-        // Invierno: 22 jun (622) - 22 sep (922)
-        if ($valor >= 622 && $valor <= 922) {
             return 'Invierno';
         }
 
-        // Primavera: 23 sep (923) - 20 dic (1220)
-        return 'Primavera';
+        // Primavera: 21 mar (321) - 20 jun (620)
+        if ($valor >= 321 && $valor <= 620) {
+            return 'Primavera';
+        }
+
+        // Verano: 21 jun (621) - 22 sep (922)
+        if ($valor >= 621 && $valor <= 922) {
+            return 'Verano';
+        }
+
+        // Otoño: 23 sep (923) - 20 dic (1220)
+        return 'Otoño';
     }
 
     private static function nombreArchivo(string $estacion): string
