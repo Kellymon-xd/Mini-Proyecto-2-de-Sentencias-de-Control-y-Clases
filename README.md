@@ -126,6 +126,35 @@ MINI_PROYECTO/
 
 ---
 
+# Funciones utilizadas
+
+## PHP
+
+- `trim()` para limpiar espacios en blanco de los datos ingresados.
+- `htmlspecialchars()` para escapar caracteres especiales y prevenir XSS.
+- `is_numeric()` para validar que el valor ingresado sea numérico.
+- Conversiones con `(int)` y `(float)` para procesar valores numéricos.
+- `round()` para redondear resultados a decimales especificados.
+- `count()` para obtener cantidad de elementos en arreglos.
+- `sqrt()` para calcular la raíz cuadrada en la desviación estándar.
+- `json_encode()` y `json_decode()` para serializar y deserializar datos JSON.
+- `file_get_contents('php://input')` para leer datos crudos enviados desde JavaScript.
+- `date_default_timezone_set()` y `DateTime` para manejar fechas y mostrar la fecha de ejecución.
+- `rtrim()` y `dirname()` para construir rutas de navegación seguras.
+- `isset()` para verificar la presencia de datos antes de procesarlos.
+
+## JavaScript
+
+- `document.getElementById()` para obtener elementos del DOM.
+- `addEventListener()` para manejar eventos de clic en botones.
+- `fetch()` para enviar peticiones al servidor y recibir respuestas JSON.
+- `JSON.stringify()` para convertir datos a JSON antes de enviarlos.
+- `textContent` para mostrar resultados de manera segura en la página.
+- `classList.add()` y `classList.remove()` para controlar la visibilidad de mensajes y paneles.
+- `Intl.NumberFormat` para formatear números de manera local.
+
+---
+
 # Validación, sanitización y seguridad OWASP
 
 Para mejorar la seguridad del proyecto se aplicaron medidas básicas de validación y sanitización.
