@@ -11,6 +11,7 @@
 
 - Kelly Beitia
 - Lionel Cordoba
+- Kathlyn Morales 
  
 
 ---
@@ -390,5 +391,5 @@ En conclusión, este proyecto permitió aplicar conocimientos fundamentales de d
 Enlace del repositorio:
 
 ```text
-http
+https://github.com/Kellymon-xd/Mini-Proyecto-2-de-Sentencias-de-Control-y-Clases
 ```
