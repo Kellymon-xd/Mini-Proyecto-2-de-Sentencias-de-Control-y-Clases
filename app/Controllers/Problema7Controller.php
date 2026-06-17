@@ -1,5 +1,10 @@
 <?php
-// Recibe las notas como JSON en el body y devuelve estadísticas.
+/**
+ * Problema 7 controller.
+ *
+ * Lee un JSON desde el cuerpo de la petición con un arreglo de notas,
+ * valida cada nota y calcula estadísticas con el modelo Estadistica.
+ */
 
 require_once __DIR__ . '/../Models/Estadistica.php';
 require_once __DIR__ . '/../Utils/Utilidades.php';
@@ -14,6 +19,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// Leer el cuerpo de la petición y convertirlo de JSON a arreglo.
 $bodyRaw = file_get_contents('php://input');
 $body = json_decode($bodyRaw, true);
 

@@ -6,6 +6,13 @@ class PresupuestoHospital
     const PORCENTAJE_GINECOLOGIA   = 0.40;
     const PORCENTAJE_TRAUMATOLOGIA = 0.35;
     const PORCENTAJE_PEDIATRIA     = 0.25;
+
+    /**
+     * Calcula la distribución del presupuesto entre áreas fijas.
+     *
+     * @param float $presupuesto
+     * @return array{ginecologia:float, traumatologia:float, pediatria:float, total:float}
+     */
     public static function calcularDistribucion(float $presupuesto): array
     {
         return [

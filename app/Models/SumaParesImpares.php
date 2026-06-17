@@ -1,8 +1,27 @@
 <?php
-// Model: calcula la suma de números pares y la suma de impares dentro de un rango.
+/**
+ * SumaParesImpares
+ *
+ * Calcula por separado la suma y el conteo de los números pares e impares
+ * dentro de un rango de enteros.
+ */
 
 class SumaParesImpares
 {
+    /**
+     * Recorre cada número del rango e incrementa los totales.
+     *
+     * @param int $inicio Valor inicial del rango.
+     * @param int $fin Valor final del rango.
+     * @return array{
+     *     sumaPares:int,
+     *     sumaImpares:int,
+     *     totalPares:int,
+     *     totalImpares:int,
+     *     inicio:int,
+     *     fin:int
+     * }
+     */
     public static function calcular(int $inicio, int $fin): array
     {
         $sumaPares   = 0;

@@ -1,8 +1,22 @@
 <?php
-// Model: calcula la suma de todos los enteros entre dos valores.Usa la fórmula de Gauss: n*(n+1)/2 adaptada al rango dado.
+/**
+ * Sumatoria
+ *
+ * Contiene el método para calcular rápidamente la suma de todos los
+ * enteros entre dos valores incluidos.
+ */
 
 class Sumatoria
 {
+    /**
+     * Calcula la suma de todos los enteros en un rango cerrado.
+     *
+     * Usa la fórmula de Gauss para obtener el resultado sin iterar.
+     *
+     * @param int $inicio Valor inicial inclusive.
+     * @param int $fin Valor final inclusive.
+     * @return int
+     */
     public static function calcular(int $inicio, int $fin): int
     {
         $sumaHastaFin    = ($fin   * ($fin   + 1)) / 2;

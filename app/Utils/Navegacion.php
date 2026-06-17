@@ -1,9 +1,17 @@
 <?php
-// app/Utils/Navegacion.php
-// Se usa para centralizar rutas y enlaces de navegación reutilizables del proyecto.
+/**
+ * Navegacion
+ *
+ * Provee métodos para generar rutas y enlaces reutilizables del proyecto.
+ */
 
 class Navegacion
 {
+    /**
+     * Devuelve la ruta base del proyecto en el servidor.
+     *
+     * @return string
+     */
     public static function obtenerBaseProyecto(): string
     {
         $script = $_SERVER['SCRIPT_NAME'] ?? '';
@@ -20,6 +28,11 @@ class Navegacion
         return $base === '' ? '' : $base;
     }
 
+    /**
+     * Devuelve la ruta pública del proyecto.
+     *
+     * @return string
+     */
     public static function obtenerRutaPublic(): string
     {
         $base = self::obtenerBaseProyecto();
@@ -27,6 +40,11 @@ class Navegacion
         return $base === '' ? '/public' : $base . '/public';
     }
 
+    /**
+     * Devuelve la ruta de la carpeta de imágenes dentro de public.
+     *
+     * @return string
+     */
     public static function obtenerRutaImagenes(): string
     {
         return self::obtenerRutaPublic() . '/img';
@@ -37,6 +55,12 @@ class Navegacion
         return self::obtenerBaseProyecto() . '/index.php';
     }
 
+    /**
+     * Genera un enlace HTML seguro para volver al menú.
+     *
+     * @param string $url URL de destino para el botón.
+     * @return string
+     */
     public static function botonVolver(string $url): string
     {
         $urlSegura = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');

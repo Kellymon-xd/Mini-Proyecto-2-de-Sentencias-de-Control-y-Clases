@@ -1,16 +1,21 @@
 <?php
-// Model: determina la estación del año a partir de una fecha.
+/**
+ * EstacionAnio
+ *
+ * Determina la estación del año para una fecha dada y devuelve
+ * un nombre de imagen correspondiente.
+ */
 
 class EstacionAnio
 {
     /**
-    * Determina la estación del año para una fecha dada.
-    *
-    * Tabla de estaciones:
-    * Invierno: 21 dic → 20 mar
-    * Primavera: 21 mar → 20 jun
-    * Verano: 21 jun → 22 sep
-    * Otoño: 23 sep → 20 dic
+     * Determina la estación del año para una fecha dada.
+     *
+     * Tabla de estaciones:
+     * Invierno: 21 dic → 20 mar
+     * Primavera: 21 mar → 20 jun
+     * Verano: 21 jun → 22 sep
+     * Otoño: 23 sep → 20 dic
     */
     public static function determinar(string $fechaStr): array
     {
@@ -31,8 +36,14 @@ class EstacionAnio
     }
 
     /**
-     * Clasifica la estación usando los rangos de mes/día.
-     * Usamos un número compuesto (mes * 100 + día) para comparar rangos fácilmente.
+     * Clasifica la estación del año según mes y día.
+     *
+     * Convierte mes y día a un valor compuesto para comparar rangos sin
+     * depender del año.
+     *
+     * @param int $mes
+     * @param int $dia
+     * @return string
      */
     private static function clasificar(int $mes, int $dia): string
     {
@@ -58,6 +69,12 @@ class EstacionAnio
         return 'Otoño';
     }
 
+    /**
+     * Devuelve el nombre de archivo de imagen según la estación.
+     *
+     * @param string $estacion
+     * @return string
+     */
     private static function nombreArchivo(string $estacion): string
     {
         $mapa = [

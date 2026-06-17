@@ -1,10 +1,21 @@
 <?php
-// Model: clasifica cada edad en su categoría y genera estadísticas del grupo.
+/**
+ * ClasificadorEdades
+ *
+ * Clasifica edades en categorías de edad y genera estadísticas del
+ * conjunto de edades proporcionado.
+ */
 
 require_once "Estadistica.php";
 
 class ClasificadorEdades
 {
+    /**
+     * Devuelve la categoría de edad según el rango.
+     *
+     * @param int $edad
+     * @return string
+     */
     public static function clasificarUna(int $edad): string
     {
         if ($edad >= 0 && $edad <= 12) {
@@ -22,6 +33,17 @@ class ClasificadorEdades
         return 'Adulto mayor';
     }
 
+    /**
+     * Procesa un arreglo de edades y devuelve categorías, conteos y estadísticas.
+     *
+     * @param int[] $edades
+     * @return array{
+     *     personas:array,
+     *     conteo:array,
+     *     estadisticas:array,
+     *     edadesRepetidas:array
+     * }
+     */
     public static function procesar(array $edades): array
     {
         $personas = [];
@@ -59,6 +81,12 @@ class ClasificadorEdades
         ];
     }
 
+    /**
+     * Busca edades duplicadas en el arreglo y devuelve su frecuencia.
+     *
+     * @param int[] $edades
+     * @return array<int,array{edad:int,cantidad:int}>
+     */
     private static function obtenerEdadesRepetidas(array $edades): array
     {
         $conteoEdades = [];

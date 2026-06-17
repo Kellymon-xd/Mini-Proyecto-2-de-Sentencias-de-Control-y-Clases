@@ -1,5 +1,10 @@
 <?php
-// Controller: recibe la fecha por POST, valida y devuelve JSON con la estación e imagen.
+/**
+ * Problema 8 controller.
+ *
+ * Recibe una fecha por POST, valida que tenga el formato correcto y
+ * determina la estación del año usando el modelo EstacionAnio.
+ */
 
 require_once __DIR__ . '/../Models/EstacionAnio.php';
 require_once __DIR__ . '/../Utils/Utilidades.php';
@@ -15,6 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// Limpiar el valor de fecha y verificar que no esté vacío.
 $fechaRaw = Utilidades::limpiarTexto($_POST['fecha'] ?? '');
 
 if ($fechaRaw === '') {

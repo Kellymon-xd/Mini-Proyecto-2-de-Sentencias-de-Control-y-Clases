@@ -67,8 +67,15 @@ class Utilidades
         return $numero >= $min && $numero <= $max;
     }
 
+    /**
+     * Devuelve la fecha actual formateada en español.
+     *
+     * Ajusta la zona horaria a América/Panamá antes de formatear.
+     *
+     * @return string
+     */
     public static function obtenerFechaEjecucion(): string
-{
+    {
     date_default_timezone_set('America/Panama');
 
     $dias = [

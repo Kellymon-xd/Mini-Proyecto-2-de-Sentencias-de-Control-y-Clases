@@ -1,5 +1,10 @@
 <?php
-// Recibe el monto total del presupuesto y lo calcula por departamento
+/**
+ * Problema 6 controller.
+ *
+ * Recibe el presupuesto total por POST, lo valida como número positivo
+ * y delega el cálculo de la distribución al modelo PresupuestoHospital.
+ */
 
 require_once __DIR__ . '/../Models/PresupuestoHospital.php';
 require_once __DIR__ . '/../Utils/Utilidades.php';
@@ -11,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
+// Limpiar el campo de presupuesto y validar que sea un número.
 $valorRaw = Utilidades::limpiarTexto($_POST['presupuesto'] ?? '');
 
 if (!Utilidades::esNumero($valorRaw)) {
@@ -18,13 +24,16 @@ if (!Utilidades::esNumero($valorRaw)) {
     exit;
 }
 
+// Convertir el presupuesto a número real.
 $presupuesto = Utilidades::convertirANumero($valorRaw);
 
+// Asegurarse de que el presupuesto sea mayor que cero.
 if ($presupuesto <= 0) {
     echo json_encode(['error' => 'El presupuesto debe ser un valor positivo mayor a cero.']);
     exit;
 }
 
+// Enviar el valor al modelo de distribución.
 $distribucion = PresupuestoHospital::calcularDistribucion($presupuesto);
 
 echo json_encode([
