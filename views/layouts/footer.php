@@ -11,7 +11,9 @@ $fechaHoy = Utilidades::obtenerFechaEjecucion();
         <?= Utilidades::escaparHTML($fechaHoy) ?>
     </p>
 
-    <p>Desarrollo Web VII &mdash; Mini Proyecto #2</p>
+    <p>Desarrollo Web VII &mdash; Mini Proyecto #2</p>  
+    <p>Copyright &copy; <?php echo date("Y"); ?> Kelly Beitia, Lionel Cordoba, Kathlyn Morales . Todos los derechos reservados.</p>
+
 </footer>
 
 </body>

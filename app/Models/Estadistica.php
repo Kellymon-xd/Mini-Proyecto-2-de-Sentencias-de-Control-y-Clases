@@ -86,6 +86,10 @@ class Estadistica
         return sqrt($sumaDiferenciasCuadradas / $cantidad);
     }
 
+    public static function division (float $num){
+        return sqrt($num);
+    }
+
     /**
      * Encuentra el valor mínimo del arreglo.
      *
