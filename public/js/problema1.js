@@ -1,3 +1,7 @@
+// Problema 1: recoge cinco valores numéricos, valida el formulario
+// y solicita al controller PHP el cálculo de estadísticas.
+
+// Maneja el clic en el botón y coordina validación, envío y visualización.
 document.getElementById('btnCalcular').addEventListener('click', function () {
     const error = document.getElementById('mensajeError');
     const panel = document.getElementById('panelResultado');
@@ -7,6 +11,7 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
     const datos = new FormData();
     let valido  = true;
 
+    // Validar que todos los campos contengan números positivos.
     for (let i = 1; i <= 5; i++) {
         const val = document.getElementById('n' + i).value.trim();
         if (val === '' || isNaN(val) || Number(val) <= 0) {
@@ -20,11 +25,13 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
 
     if (!valido) return;
 
+    // Enviar los datos validados al servidor y manejar la respuesta.
     fetch((window.__APP_BASE || '') + '/app/Controllers/Problema1Controller.php', {
         method: 'POST',
         body: datos
     })
     .then(r => r.json())
+    // Procesar la respuesta JSON del servidor.
     .then(function (json) {
         if (json.error) {
             error.textContent = json.error;
@@ -37,6 +44,7 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
         document.getElementById('rMaximo').textContent     = json.maximo;
         panel.classList.add('visible');
     })
+    // Manejar errores de conexión y notificar al usuario.
     .catch(function () {
         error.textContent = 'Error al conectar con el servidor.';
         error.classList.add('visible');

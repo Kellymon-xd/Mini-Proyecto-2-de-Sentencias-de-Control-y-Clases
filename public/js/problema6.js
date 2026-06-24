@@ -1,7 +1,8 @@
-//   Enviar el formulario al controller via fetch.
-//   Mostrar los resultados en la tabla.
-//   Dibujar la gráfica circular con Canvas API.
+// Problema 6: valida el presupuesto ingresado, lo envía al controller y
+// luego muestra los montos por área y una gráfica de pastel.
 
+// Manejador del botón "Calcular" que comprueba el monto ingresado,
+// solicita la distribución presupuestaria al servidor y actualiza la vista.
 document.getElementById('btnCalcular').addEventListener('click', function () {
 
     const presupuesto = document.getElementById('presupuesto').value.trim();
@@ -20,6 +21,9 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
 
     const datos = new FormData();
     datos.append('presupuesto', presupuesto);
+
+    // Enviar presupuesto al servidor y usar la respuesta para mostrar
+    // montos y gráfica.
 fetch((window.__APP_BASE || '') + '/app/Controllers/Problema6Controller.php', {
     method: 'POST',
     body: datos
@@ -46,6 +50,7 @@ fetch((window.__APP_BASE || '') + '/app/Controllers/Problema6Controller.php', {
 
         panel.classList.add('visible');
 
+        // Dibujar la gráfica circular con los valores devueltos por el servidor.
         dibujarGrafica(json.ginecologia, json.traumatologia, json.pediatria);
 
     })
@@ -59,8 +64,13 @@ fetch((window.__APP_BASE || '') + '/app/Controllers/Problema6Controller.php', {
 /**
  * Dibuja una gráfica de pastel (pie chart) usando Canvas API.
  * No necesita ninguna librería externa.
+ *
+ * @param {number} ginecologia
+ * @param {number} traumatologia
+ * @param {number} pediatria
  */
 function dibujarGrafica(ginecologia, traumatologia, pediatria) {
+    // Dibuja un gráfico de pastel con los tres montos recibidos.
     const canvas = document.getElementById('graficaPresupuesto');
     const ctx    = canvas.getContext('2d');
 

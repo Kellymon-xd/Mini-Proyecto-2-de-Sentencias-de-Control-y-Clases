@@ -4,6 +4,7 @@ require_once __DIR__ . '/layouts/header.php';
 require_once __DIR__ . '/../app/Utils/Navegacion.php';
 ?>
 
+<?php // Vista de Problema 6: formulario para presupuesto y panel de resultados con gráfica. ?>
 <main class="contenedor">
 
     <h1 class="titulo-problema">Problema 6 — Presupuesto del Hospital</h1>
@@ -13,6 +14,7 @@ require_once __DIR__ . '/../app/Utils/Navegacion.php';
     </p>
 
     <div class="formulario">
+        <?php // Campo para ingresar el presupuesto anual y botón para calcular la distribución. ?>
         <div class="campo">
             <label for="presupuesto">Presupuesto anual ($):</label>
             <input
@@ -27,8 +29,10 @@ require_once __DIR__ . '/../app/Utils/Navegacion.php';
         <button class="btn-primario" id="btnCalcular">Calcular distribución</button>
     </div>
 
+    <?php // Contenedor para mostrar errores de validación o comunicación con el servidor. ?>
     <div class="mensaje-error" id="mensajeError" role="alert"></div>
 
+    <?php // Panel de resultados que se llena después de la respuesta JSON del controlador. ?>
     <div class="resultado" id="panelResultado">
         <h3>Distribución del presupuesto</h3>
 

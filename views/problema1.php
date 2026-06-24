@@ -3,6 +3,7 @@ require_once __DIR__ . '/layouts/header.php';
 require_once __DIR__ . '/../app/Utils/Navegacion.php';
 ?>
 
+<?php // Vista de Problema 1: formulario para cinco números y tabla de estadísticas. ?>
 <main class="contenedor">
     <h1 class="titulo-problema">Problema 1 — Estadísticas básicas</h1>
     <p class="descripcion-problema">
@@ -11,6 +12,7 @@ require_once __DIR__ . '/../app/Utils/Navegacion.php';
     </p>
 
     <div class="formulario">
+        <?php // Generar cinco campos de entrada numéricos dinámicamente. ?>
         <?php for ($i = 1; $i <= 5; $i++): ?>
     <div class="campo">
         <label for="n<?= $i ?>">Número <?= $i ?>:</label>
@@ -34,8 +36,10 @@ require_once __DIR__ . '/../app/Utils/Navegacion.php';
         <button class="btn-primario" id="btnCalcular">Calcular estadísticas</button>
     </div>
 
+    <?php // Mensaje de error controlado desde JS cuando la validación o el fetch falla. ?>
     <div class="mensaje-error" id="mensajeError" role="alert"></div>
 
+    <?php // Panel de resultados que se muestra después de recibir la respuesta del servidor. ?>
     <div class="resultado" id="panelResultado">
         <h3>Resultados</h3>
         <table class="tabla-datos">

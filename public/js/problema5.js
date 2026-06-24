@@ -1,3 +1,8 @@
+// Problema 5: valida cinco edades, las manda al controller y recibe
+// categorías de edad junto con estadísticas y datos para la tabla.
+
+// Manejador del botón "Clasificar" que recopila y valida las edades,
+// envía los datos y actualiza la tabla y el gráfico.
 document.getElementById('btnClasificar').addEventListener('click', function () {
     const error = document.getElementById('mensajeError');
     const panel = document.getElementById('panelResultado');
@@ -20,6 +25,7 @@ document.getElementById('btnClasificar').addEventListener('click', function () {
 
     if (!valido) return;
 
+    // Enviar las edades al servidor y renderizar la respuesta.
     fetch((window.__APP_BASE || '') + '/app/Controllers/Problema5Controller.php', {
         method: 'POST',
         body: datos
@@ -56,6 +62,7 @@ document.getElementById('btnClasificar').addEventListener('click', function () {
 
         panel.classList.add('visible');
 
+        // Actualizar el gráfico de barras con los conteos recibidos.
         dibujarBarras(json.conteo);
     })
     .catch(function () {

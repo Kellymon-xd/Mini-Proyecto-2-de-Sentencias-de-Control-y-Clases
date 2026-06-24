@@ -3,6 +3,7 @@ require_once __DIR__ . '/layouts/header.php';
 require_once __DIR__ . '/../app/Utils/Navegacion.php';
 ?>
 
+<?php // Vista de Problema 2: resultado inmediato sin datos de entrada. ?>
 <main class="contenedor">
     <h1 class="titulo-problema">Problema 2 — Sumatoria del 1 al 1000</h1>
     <p class="descripcion-problema">
@@ -11,6 +12,7 @@ require_once __DIR__ . '/../app/Utils/Navegacion.php';
     </p>
 
     <div class="formulario">
+        <?php // Instrucciones breves para el problema sin formulario de entrada. ?>
         <p style="margin-bottom:1rem; color: var(--texto-medio); font-size:0.93rem;">
             Este problema no requiere datos de entrada.
             Presiona el botón para obtener el resultado.
@@ -18,8 +20,10 @@ require_once __DIR__ . '/../app/Utils/Navegacion.php';
         <button class="btn-primario" id="btnCalcular">Calcular sumatoria</button>
     </div>
 
+    <?php // Contenedor de errores para mostrar mensajes de conexión o respuesta inválida. ?>
     <div class="mensaje-error" id="mensajeError" role="alert"></div>
 
+    <?php // Panel de resultados que se llenará tras la respuesta del controller. ?>
     <div class="resultado" id="panelResultado">
         <h3>Resultado</h3>
         <table class="tabla-datos">

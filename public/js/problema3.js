@@ -1,5 +1,8 @@
-// public/js/problema3.js
+// Problema 3: valida N, envía el valor al controller y muestra
+// los múltiplos de 4 devueltos en una lista de chips.
 
+// Manejador del botón "Generar" que valida la entrada y solicita
+// al servidor los múltiplos correspondientes.
 document.getElementById('btnGenerar').addEventListener('click', function () {
     const error = document.getElementById('mensajeError');
     const panel = document.getElementById('panelResultado');
@@ -16,11 +19,13 @@ document.getElementById('btnGenerar').addEventListener('click', function () {
     const datos = new FormData();
     datos.append('n', n);
 
+    // Enviar número al servidor para obtener los múltiplos de 4.
     fetch((window.__APP_BASE || '') + '/app/Controllers/Problema3Controller.php', {
         method: 'POST',
         body: datos
     })
     .then(r => r.json())
+    // Procesar la respuesta JSON y renderizar los chips.
     .then(function (json) {
         if (json.error) {
             error.textContent = json.error;

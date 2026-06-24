@@ -1,3 +1,7 @@
+// Problema 9: valida el número ingresado, solicita las primeras 15 potencias
+// al controller y renderiza exponentes con superíndices legibles.
+
+// Superíndices usados para mostrar exponentes como texto legible.
 const SUPERINDICES = {
     "0": "⁰",
     "1": "¹",
@@ -11,6 +15,8 @@ const SUPERINDICES = {
     "9": "⁹"
 };
 
+// Manejador del botón "Calcular" que valida el número ingresado,
+// solicita el cálculo de potencias y renderiza la tabla resultante.
 document.getElementById('btnCalcular').addEventListener('click', function () {
     const error = document.getElementById('mensajeError');
     const panel = document.getElementById('panelResultado');
@@ -49,6 +55,8 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
 
         json.potencias.forEach(function (item) {
             const fila = document.createElement('tr');
+
+            // Construir el exponente en formato superíndice.
             const tdExp = document.createElement('td');
             const tdExpr = document.createElement('td');
             const tdRes = document.createElement('td');

@@ -1,6 +1,8 @@
-// Genera campos de nota según la cantidad indicada.
-// Recolecta los valores, los envía como JSON y muestra estadísticas.
+// Problema 7: permite crear dinámicamente campos de nota,
+// enviar esas notas como JSON y recibir estadísticas del servidor.
 
+// Manejador del botón "Generar Campos" que construye dinámicamente
+// los inputs de notas con la cantidad solicitada.
 document.getElementById('btnGenerarCampos').addEventListener('click', function () {
     const error = document.getElementById('mensajeError');
     error.classList.remove('visible');
@@ -16,6 +18,7 @@ document.getElementById('btnGenerarCampos').addEventListener('click', function (
     const contenedor = document.getElementById('camposNotas');
     contenedor.innerHTML = ''; // limpiar campos previos
 
+    // Crear los campos de entrada para cada nota.
     for (let i = 1; i <= cantidad; i++) {
         const div   = document.createElement('div');
         div.className = 'campo';
@@ -43,6 +46,8 @@ document.getElementById('btnGenerarCampos').addEventListener('click', function (
 });
 
 
+// Manejador del botón "Calcular" que valida las notas dinámicas,
+// las envía como JSON y muestra las estadísticas resultantes.
 document.getElementById('btnCalcular').addEventListener('click', function () {
     const error = document.getElementById('mensajeError');
     const panel = document.getElementById('panelResultado');
@@ -69,6 +74,7 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
 
     if (!valido) return;
 
+    // Enviar el arreglo de notas al servidor como JSON.
     fetch((window.__APP_BASE || '') + '/app/Controllers/Problema7Controller.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -1,11 +1,14 @@
-// El Problema 2 no necesita datos de entrada: solo dispara el fetch.
+// Problema 2: no requiere datos de usuario. Solo realiza el POST
+// al controller y muestra el resultado devuelto.
 
+// Maneja el clic en el botón calculando el resultado sin entrada adicional.
 document.getElementById('btnCalcular').addEventListener('click', function () {
     const error = document.getElementById('mensajeError');
     const panel = document.getElementById('panelResultado');
     error.classList.remove('visible');
     panel.classList.remove('visible');
 
+    // Enviar la petición al servidor para obtener el resultado predefinido.
     fetch((window.__APP_BASE || '') + '/app/Controllers/Problema2Controller.php', {
         method: 'POST',
         body: new FormData()   // body vacío, el controller no necesita input

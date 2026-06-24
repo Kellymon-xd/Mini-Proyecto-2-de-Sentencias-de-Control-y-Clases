@@ -1,7 +1,8 @@
-//   Enviar la fecha al controller via fetch.
-//   Mostrar la estación con textContent (evita XSS).
-//   Asignar el src de la imagen con el valor devuelto por el JSON.
+// Problema 8: envía la fecha seleccionada al controller, valida la
+// respuesta y actualiza la vista con la estación y la imagen correspondiente.
 
+// Manejador del botón "Consultar" que realiza la petición de estación
+// según la fecha ingresada.
 document.getElementById('btnConsultar').addEventListener('click', function () {
 
     const fechaInput = document.getElementById('fecha');
@@ -23,7 +24,7 @@ document.getElementById('btnConsultar').addEventListener('click', function () {
         return;
     }
 
-    // Armar datos del formulario
+    // Armar datos del formulario para enviar la fecha al servidor.
     const datos = new FormData();
     datos.append('fecha', fecha);
 
@@ -46,6 +47,7 @@ document.getElementById('btnConsultar').addEventListener('click', function () {
         // ── Mostrar la fecha en formato legible ──────────────────
         // Creamos un objeto Date a partir del string para formatearlo
         // Sumamos T00:00:00 para evitar problemas de zona horaria
+        // Convertir la cadena ISO a Date para formateo local.
         const partes    = json.fecha.split('-');         // ['2024','12','25']
         const fechaObj  = new Date(partes[0], partes[1] - 1, partes[2]);
         const opciones  = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -60,6 +62,8 @@ document.getElementById('btnConsultar').addEventListener('click', function () {
         imagen.src         = json.imagen;
         imagen.alt         = 'Imagen de ' + json.estacion;
         imagen.style.display = 'block';
+
+        // Mostrar el panel de resultados al usuario.
 
         // ── Mostrar el panel completo ────────────────────────────
         panel.classList.add('visible');

@@ -3,6 +3,7 @@ require_once __DIR__ . '/layouts/header.php';
 require_once __DIR__ . '/../app/Utils/Navegacion.php';
 ?>
 
+<?php // Vista de Problema 5: recolecta cinco edades y muestra la clasificación con gráfico. ?>
 <main class="contenedor">
     <h1 class="titulo-problema">Problema 5 — Clasificador de edades</h1>
     <p class="descripcion-problema">
@@ -11,6 +12,7 @@ require_once __DIR__ . '/../app/Utils/Navegacion.php';
     </p>
 
     <div class="formulario">
+        <?php // Generar cinco campos de edad con validación básica de cliente. ?>
         <?php for ($i = 1; $i <= 5; $i++): ?>
     <div class="campo">
         <label for="edad<?= $i ?>">Edad persona <?= $i ?>:</label>
@@ -37,8 +39,10 @@ require_once __DIR__ . '/../app/Utils/Navegacion.php';
         <button class="btn-primario" id="btnClasificar">Clasificar</button>
     </div>
 
+    <?php // Mensaje de error para mostrar problemas de validación o comunicación. ?>
     <div class="mensaje-error" id="mensajeError" role="alert"></div>
 
+    <?php // Panel de resultados con tabla y gráfico de barras. ?>
     <div class="resultado" id="panelResultado">
 
         <h3>Clasificación individual</h3>

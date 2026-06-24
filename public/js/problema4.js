@@ -1,3 +1,8 @@
+// Problema 4: envía un rango de inicio y fin al controller para obtener
+// la suma de pares e impares en ese intervalo.
+
+// Manejador del botón "Calcular" que valida el rango y genera la
+// consulta para el servidor.
 document.getElementById('btnCalcular').addEventListener('click', function () {
     const error = document.getElementById('mensajeError');
     const panel = document.getElementById('panelResultado');
@@ -17,6 +22,7 @@ document.getElementById('btnCalcular').addEventListener('click', function () {
     datos.append('inicio', inicio);
     datos.append('fin',    fin);
 
+    // Enviar inicio/fin al servidor y procesar los totales devueltos.
     fetch((window.__APP_BASE || '') + '/app/Controllers/Problema4Controller.php', {
         method: 'POST',
         body: datos

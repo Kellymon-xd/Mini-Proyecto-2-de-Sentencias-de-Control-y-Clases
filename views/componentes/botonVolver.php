@@ -2,6 +2,7 @@
 // Componente: muestra el botón "Volver al menú".
 // Úsalo con: require y pasando la variable $urlVolver antes del include.
 
+// Si no se define $urlVolver, se calcula la URL de regreso automática.
 if (!isset($urlVolver)) {
     $script = $_SERVER['SCRIPT_NAME'] ?? '';
     $base   = rtrim(dirname($script), '/\\');
