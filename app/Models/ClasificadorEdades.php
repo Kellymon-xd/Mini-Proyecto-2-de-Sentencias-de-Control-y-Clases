@@ -77,39 +77,8 @@ class ClasificadorEdades
                 'maximo' => $estadisticas['maximo'],
                 'cantidad' => $estadisticas['cantidad'],
             ],
-            'edadesRepetidas' => self::obtenerEdadesRepetidas($edades),
+
         ];
-    }
-
-    /**
-     * Busca edades duplicadas en el arreglo y devuelve su frecuencia.
-     *
-     * @param int[] $edades
-     * @return array<int,array{edad:int,cantidad:int}>
-     */
-    private static function obtenerEdadesRepetidas(array $edades): array
-    {
-        $conteoEdades = [];
-        $repetidas = [];
-
-        foreach ($edades as $edad) {
-            if (!isset($conteoEdades[$edad])) {
-                $conteoEdades[$edad] = 0;
-            }
-
-            $conteoEdades[$edad]++;
-        }
-
-        foreach ($conteoEdades as $edad => $cantidad) {
-            if ($cantidad > 1) {
-                $repetidas[] = [
-                    'edad' => $edad,
-                    'cantidad' => $cantidad,
-                ];
-            }
-        }
-
-        return $repetidas;
     }
 }
 ?>
